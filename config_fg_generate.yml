@@ -1,0 +1,58 @@
+use_pretrained: true
+ckpt_path: "out_crippen_stream/model_weights_stream_best.pth"
+model: "CrippenNet"
+pooling: "smartest"
+n_conv: 3
+layer_list: [256, 256]
+type_list: ['H','C','N','O','F','P','S','Cl','Br','I']
+max_size: 80
+
+generation_mode: fg
+n_restarts: 4
+seed: 777
+target: 2.25
+fg:
+  vocab_dir: "out/vocab"
+
+  ports:
+    policy: "attachments_json"
+    file: "out/vocab/attachment_filtered_pruned.json"
+
+  steps: 300
+  print_every: 25
+  max_motifs: 20
+  min_atoms: 30
+  max_atoms: 50
+  init_scale: 0.02
+  init_noise: 0.10
+
+  pop: 16
+  sigma: 0.10
+  lr_es: 0.20
+
+  w_prop: 1 
+  w_cap: 2 
+  w_size: 0
+  w_invalid: 0.0
+  w_edges: 0
+  min_edges: 30
+  logp_tol: 0.25        # range = target ± 0.25  => [2.25, 2.75]
+  logp_lo: 2.25
+  logp_hi: 2.75
+  hi_mult: 10.0 
+  lo_mult: 1.0
+  warmup_valid_steps: 75
+  invalid_patience: 25
+  w_prop_warm: 0.0
+  w_cap_warm: 5.0
+  sigma_min: 0.03
+  lr_min: 0.05
+  w_conn: 20.0
+
+  early_stop_patience: 80
+  early_stop_min_delta: 1e-4
+  early_stop_start: 60
+
+motif_prior_csv: "motifs_redundancy.csv"
+motif_prior_col: "total_occurrences"   
+motif_prior_delta: 0.20                
