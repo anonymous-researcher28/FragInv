@@ -12,11 +12,11 @@ n_restarts: 4
 seed: 777
 target: 2.25
 fg:
-  vocab_dir: "out/vocab"
+  vocab_dir: "./"
 
   ports:
     policy: "attachments_json"
-    file: "out/vocab/attachment_filtered_pruned.json"
+    file: "attachment_filtered.json"
 
   steps: 300
   print_every: 25
