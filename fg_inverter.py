@@ -17,15 +17,15 @@ from rdkit import Chem as _Chem
 from rdkit.Chem import MolToSmiles
 from rdkit.Chem.Draw import MolToImage
 
-from didgen.fg_core import (
+from fraginv.fg_core import (
     FGCandidate,
     MotifLibrary,
     capacity_loss,
     round_to_atomic,
     safe_logp_from_smiles,
 )
-from didgen.utils import GraphFromMol
-from didgen.train import add_extra_features
+from fraginv.utils import GraphFromMol
+from fraginv.train import add_extra_features
 
 
 def seed_everything(seed: int, deterministic: bool = False) -> None:
