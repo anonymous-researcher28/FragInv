@@ -1,5 +1,5 @@
 use_pretrained: true
-ckpt_path: "out_crippen_stream/model_weights_stream_best.pth"
+ckpt_path: "model_weights_stream_best.pth"
 model: "CrippenNet"
 pooling: "smartest"
 n_conv: 3
