@@ -1,1 +1,1 @@
-from fraginv import generate
+from .generator import generate
